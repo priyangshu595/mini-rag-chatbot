@@ -99,7 +99,7 @@ async function ask() {
     chat.scrollTop = chat.scrollHeight;
 
     try {
-        const res = await fetch(`http://127.0.0.1:8000/ask?query=${query}`);
+        const res = await fetch(`https://mini-rag-chatbot-5n1r.onrender.com/`);
         const data = await res.json();
 
         document.getElementById("loading").remove();
