@@ -90,27 +90,28 @@ async function ask() {
 
     if (!query) return;
 
-   
+    // show user message
     chat.innerHTML += `<div class="message user">${query}</div>`;
     input.value = "";
 
-    
+    // loading message
     chat.innerHTML += `<div class="message bot" id="loading">Typing...</div>`;
     chat.scrollTop = chat.scrollHeight;
 
     try {
-        const res = await fetch(`https://mini-rag-chatbot-5n1r.onrender.com/`);
+        const res = await fetch(`https://mini-rag-chatbot-5n1r.onrender.com/ask?query=${encodeURIComponent(query)}`);
         const data = await res.json();
 
         document.getElementById("loading").remove();
 
-        
+        // format answer
+        const formattedAnswer = data.answer
+            .replace(/^- /gm, "• ")
+            .replace(/\n/g, "<br>");
+
         chat.innerHTML += `
             <div class="message bot">
-                ${data.answer
-    .replace(/ - /g, "<br>• ")
-    .replace(/^- /, "• ")
-    .replace(/\n/g, "<br>")}
+                ${formattedAnswer}
                 <div class="context"><b>Context:</b><br>${data.retrieved_context.join("<br><br>")}</div>
             </div>
         `;
