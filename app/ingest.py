@@ -26,6 +26,7 @@ for doc in documents:
     all_chunks.extend(chunk_text(doc))
 
 embeddings = model.encode(all_chunks)
+np.save("embeddings.npy", embeddings)
 
 index = faiss.IndexFlatL2(len(embeddings[0]))
 index.add(np.array(embeddings))
