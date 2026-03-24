@@ -1,6 +1,7 @@
 import requests
 
-API_KEY = "sk-xxxx"
+import os
+API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 
 # =========================
