@@ -1,8 +1,8 @@
 # 🏗️ Mini RAG Chatbot for Construction Assistant
 
 ## 🚀 Live Demo
-🔗 Frontend: [Add your Vercel link here]  
-🔗 Backend API: [Add your Render link here]  
+🔗 Frontend: https://mini-rag-chatbot.vercel.app/  
+🔗 Backend API: https://mini-rag-chatbot-5n1r.onrender.com/
 
 ---
 
